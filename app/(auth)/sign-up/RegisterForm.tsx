@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { LoadingButton } from "@/components/loading-button";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,8 +27,6 @@ import {
   Form,
   FormControl,
   FormField,
-  FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { passwordSchema } from "@/lib/validation";
@@ -59,13 +56,11 @@ export default function SignInForm() {
     confirmPassword: "",
     terms: false,
   });
-  const [errors, setErrors] = useState<Record<string, string>>("");
+  const [errors] = useState<Record<string, string>>({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const searchParams = useSearchParams();
 
-  const redirect = searchParams.get("redirect");
-  const [error, setError] = useState<string | null>(null);
+  const [setError] = useState<string | null>(null);
 
   const form = useForm<SignUpValues>({
     resolver: zodResolver(signUpSchema),
