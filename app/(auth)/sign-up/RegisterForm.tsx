@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter  } from "next/navigation";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,8 +59,9 @@ export default function SignInForm() {
   const [errors] = useState<Record<string, string>>({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  
 
-  const [setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const form = useForm<SignUpValues>({
     resolver: zodResolver(signUpSchema),
