@@ -1,6 +1,15 @@
-node_modules
-.next
-dist
-prisma/generated
+#Prisma generated files
 lib/generated
+
+# Standard ignores 
+node_modules
+.next/
+dist/
+out/
+build/
+prisma/generated
 **/generated/**
+
+# Environment files 
+.env
+.env.local
